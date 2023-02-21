@@ -446,17 +446,17 @@ class Path:
     def __repr__(self) -> str:
         if self.depth is None:
             if self.path == []:
-                return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+                return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}ms
             Camino: ¡Error! No se encontro camino.\n"""
             else:
-                return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+                return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}ms
             Camino: {self.path}\n"""
             
         if self.path == []:
-            return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+            return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}ms
         Camino: ¡Error! No se encontro camino. \tProfundidad: {self.depth}\n"""
         else:
-            return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+            return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}ms
         Camino: {self.path} \tProfundidad: {self.depth}\n"""
 
 
@@ -500,7 +500,7 @@ def main():
     for path in Paths:
         print(path)
 
-    print(f"El algoritmo con el menor tiempo de ejecución fue de busqueda {min(Paths).alg}")
+    print(f"El algoritmo con el menor tiempo de ejecución fue de busqueda {min(Paths).alg} con un tiempom de {min(Paths).time} ms")
 
 if __name__ == "__main__":
     main()
