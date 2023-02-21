@@ -427,7 +427,7 @@ def validate_int() -> int:
     return limit
 
 class Path:
-    def __init__(self, alg:str, path:list, time:float, tree):
+    def _init_(self, alg:str, path:list, time:float, tree):
         self.alg = alg
 
         if type(path) != tuple:
@@ -440,15 +440,23 @@ class Path:
         self.time = time
         self.cost = get_cost(tree, path)
     
-    def __lt__(self, other):
+    def _lt_(self, other):
         return self.time <= other.time
 
-    def __repr__(self) -> str:
+    def _repr_(self) -> str:
         if self.depth is None:
+            if self.path == []:
+                return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+            Camino: ¡Error! No se encontro camino.\n"""
+            else:
+                return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+            Camino: {self.path}\n"""
+            
+        if self.path == []:
             return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
-        Camino: {self.path}\n"""
-
-        return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
+        Camino: ¡Error! No se encontro camino. \tProfundidad: {self.depth}\n"""
+        else:
+            return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
         Camino: {self.path} \tProfundidad: {self.depth}\n"""
 
 
