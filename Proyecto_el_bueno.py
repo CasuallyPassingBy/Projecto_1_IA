@@ -427,7 +427,7 @@ def validate_int() -> int:
     return limit
 
 class Path:
-    def _init_(self, alg:str, path:list, time:float, tree):
+    def __init__(self, alg:str, path:list, time:float, tree):
         self.alg = alg
 
         if type(path) != tuple:
@@ -440,10 +440,10 @@ class Path:
         self.time = time
         self.cost = get_cost(tree, path)
     
-    def _lt_(self, other):
+    def __lt__(self, other):
         return self.time <= other.time
 
-    def _repr_(self) -> str:
+    def __repr__(self) -> str:
         if self.depth is None:
             if self.path == []:
                 return f"""El algoritmo de busqueda {self.alg}: \tCosto: {self.cost} \tTiempo de ejecución: {self.time}
