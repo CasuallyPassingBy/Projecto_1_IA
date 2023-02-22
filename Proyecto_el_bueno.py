@@ -501,7 +501,7 @@ def main():
     for path in Paths:
         print(path)
 
-    print(f"El algoritmo con el menor tiempo de ejecución fue de busqueda {min(Paths).alg} con un tiempom de {min(Paths).time} ms")
+    print(f"El algoritmo con el menor tiempo de ejecución fue de busqueda {min(Paths).alg} con un tiempo de {min(Paths).time} ms")
 
 if __name__ == "__main__":
     main()
